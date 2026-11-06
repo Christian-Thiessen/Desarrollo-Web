@@ -1,0 +1,223 @@
+:root {
+  --color-fondo: #eef2f7;
+  --color-superficie: #ffffff;
+  --color-tinta: #1d1535;
+  --color-tinta-suave: #5b5473;
+  --color-primario: #3b2a78;
+  --color-portal: #6fd94b;
+  --color-borde: #d5dbe6;
+  --color-error: #b3261e;
+  --espacio: 1rem;
+  --radio: 0.75rem;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  font-family: "Segoe UI", system-ui, -apple-system, sans-serif;
+  line-height: 1.5;
+  color: var(--color-tinta);
+  background: var(--color-fondo);
+}
+
+/* Encabezado (Flexbox) */
+.encabezado {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: var(--espacio);
+  padding: var(--espacio) calc(var(--espacio) * 1.5);
+  color: #fff;
+  background: var(--color-primario);
+}
+
+.encabezado__marca {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.encabezado h1 {
+  margin: 0;
+  font-size: clamp(1.25rem, 4vw, 1.75rem);
+  line-height: 1.2;
+}
+
+.encabezado__nota {
+  margin: 0;
+  font-size: 0.875rem;
+  color: #cfc8ee;
+}
+
+.portal {
+  flex-shrink: 0;
+  width: 2rem;
+  height: 2rem;
+  border-radius: 50%;
+  background: radial-gradient(circle, #fff 0 12%, var(--color-portal) 13% 55%, #2f8f1a 56% 100%);
+  box-shadow: 0 0 0.75rem var(--color-portal);
+}
+
+/* Contenido */
+main {
+  flex: 1;
+  width: 100%;
+  max-width: 72rem;
+  margin-inline: auto;
+  padding: calc(var(--espacio) * 1.5) var(--espacio);
+}
+
+.buscador {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  gap: var(--espacio);
+  padding: var(--espacio);
+  background: var(--color-superficie);
+  border: 1px solid var(--color-borde);
+  border-radius: var(--radio);
+}
+
+.campo {
+  flex: 1 1 12rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+label {
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+
+input,
+select {
+  width: 100%;
+  padding: 0.6rem 0.75rem;
+  font: inherit;
+  color: var(--color-tinta);
+  background: #fff;
+  border: 1px solid var(--color-borde);
+  border-radius: 0.5rem;
+}
+
+input:focus-visible,
+select:focus-visible,
+.boton:focus-visible {
+  outline: 3px solid var(--color-portal);
+  outline-offset: 2px;
+}
+
+.boton {
+  padding: 0.65rem 1.5rem;
+  font: inherit;
+  font-weight: 600;
+  color: #fff;
+  background: var(--color-primario);
+  border: none;
+  border-radius: 0.5rem;
+  cursor: pointer;
+}
+
+.boton:hover:not(:disabled) {
+  background: #2c1f5c;
+}
+
+.boton:disabled {
+  opacity: 0.6;
+  cursor: wait;
+}
+
+/* Mensajes de estado */
+.mensaje {
+  margin: var(--espacio) 0;
+  min-height: 1.5rem;
+  color: var(--color-tinta-suave);
+}
+
+.mensaje[data-tipo="error"] {
+  color: var(--color-error);
+  font-weight: 600;
+}
+
+/* Grilla de tarjetas (Grid) */
+.grilla {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(16rem, 100%), 1fr));
+  gap: var(--espacio);
+}
+
+.tarjeta {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  padding: var(--espacio);
+  background: var(--color-superficie);
+  border: 1px solid var(--color-borde);
+  border-radius: var(--radio);
+}
+
+.tarjeta__codigo {
+  align-self: flex-start;
+  margin: 0;
+  padding: 0.15rem 0.7rem;
+  font-size: 1.25rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  color: var(--color-primario);
+  background: var(--color-portal);
+  border-radius: 999px;
+}
+
+.tarjeta__titulo {
+  margin: 0;
+  font-size: 1.15rem;
+  line-height: 1.3;
+  overflow-wrap: anywhere;
+}
+
+.tarjeta dl {
+  display: grid;
+  gap: 0.25rem;
+  margin: 0;
+}
+
+.tarjeta__dato {
+  display: flex;
+  justify-content: space-between;
+  gap: 0.5rem;
+  padding-top: 0.25rem;
+  border-top: 1px solid var(--color-borde);
+}
+
+.tarjeta dt {
+  color: var(--color-tinta-suave);
+}
+
+.tarjeta dd {
+  margin: 0;
+  font-weight: 600;
+  text-align: right;
+}
+
+/* Pie */
+.pie {
+  padding: var(--espacio);
+  text-align: center;
+  font-size: 0.9rem;
+  color: var(--color-tinta-suave);
+  border-top: 1px solid var(--color-borde);
+}
+
+.pie p {
+  margin: 0;
+}

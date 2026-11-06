@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Buscador de episodios de Rick and Morty</title>
+  <link rel="stylesheet" href="css/estilos.css">
+  <script src="js/app.js" defer></script>
+</head>
+<body>
+  <header class="encabezado">
+    <div class="encabezado__marca">
+      <span class="portal" aria-hidden="true"></span>
+      <h1>Episodios de Rick and Morty</h1>
+    </div>
+    <p class="encabezado__nota">Datos de rickandmortyapi.com</p>
+  </header>
+
+  <main>
+    <form id="formulario-busqueda" class="buscador">
+      <div class="campo">
+        <label for="nombre">Nombre del episodio</label>
+        <input type="text" id="nombre" name="nombre" placeholder="Por ejemplo: pilot" autocomplete="off">
+      </div>
+      <div class="campo">
+        <label for="temporada">Temporada</label>
+        <select id="temporada" name="temporada">
+          <option value="">Todas</option>
+          <option value="S01">S01</option>
+          <option value="S02">S02</option>
+          <option value="S03">S03</option>
+          <option value="S04">S04</option>
+          <option value="S05">S05</option>
+        </select>
+      </div>
+      <button type="submit" id="boton-buscar" class="boton">Buscar</button>
+    </form>
+
+    <p id="mensaje" class="mensaje" role="status" aria-live="polite">Escribe un nombre o elige una temporada para empezar.</p>
+    <section id="resultados" class="grilla" aria-label="Resultados de la búsqueda"></section>
+  </main>
+
+  <footer class="pie">
+    <p>Hecho por Christian Rene Thiessen para la materia Fundamentos de Desarrollo Web.</p>
+  </footer>
+</body>
+</html>
